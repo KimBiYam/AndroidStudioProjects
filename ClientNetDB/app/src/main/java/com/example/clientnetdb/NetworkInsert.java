@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class NetworkInsert extends AsyncTask<String, Void, String> {
     private URL Url;
-    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB.jsp";
+    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB_insert.jsp";
     private Custom_Adapter adapter;
 
     public NetworkInsert(Custom_Adapter adapter) {
@@ -43,8 +43,8 @@ public class NetworkInsert extends AsyncTask<String, Void, String> {
             StringBuffer buffer = new StringBuffer();
             buffer.append("id").append("=").append(strings[0]);
             buffer.append("&name").append("=").append(strings[1]);
-            buffer.append("phone").append("=").append(strings[2]);
-            buffer.append("grade").append("=").append(strings[3]);
+            buffer.append("&phone").append("=").append(strings[2]);
+            buffer.append("&grade").append("=").append(strings[3]);
 
             // 서버로 전송
             OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "utf-8");
