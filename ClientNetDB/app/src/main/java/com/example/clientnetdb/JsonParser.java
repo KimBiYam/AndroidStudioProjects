@@ -47,7 +47,6 @@ public class JsonParser {
             userList.add(new UserInfo(strID, strName, strPhone, strGrade, strWriteTime));
         }
         return jsonArray.length();
-
     }
     static public int getResultJson(String response) throws JSONException{
         JSONArray jsonArray = new JSONArray(response);

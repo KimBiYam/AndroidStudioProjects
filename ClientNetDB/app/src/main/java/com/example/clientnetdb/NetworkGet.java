@@ -8,7 +8,6 @@ import org.json.JSONException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 
 public class NetworkGet extends AsyncTask<String, Void, String> {
     private URL Url;
-    private String URL_Adress = "http://localhost:8080/testDB/testDB.jsp";
+    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB.jsp";
     private Custom_Adapter adapter;
 
     public NetworkGet(Custom_Adapter adapter) {
@@ -28,14 +27,6 @@ public class NetworkGet extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... strings) {
-        return null;
-    }
-
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
-    protected String doInBackGround(String... strings) {
         String res = "";
         try {
             Url = new URL(URL_Adress);
@@ -75,6 +66,10 @@ public class NetworkGet extends AsyncTask<String, Void, String> {
         }
         Log.i("Get result", res);
         return res;
+    }
+
+    protected void onPreExecute() {
+        super.onPreExecute();
     }
 
     @Override

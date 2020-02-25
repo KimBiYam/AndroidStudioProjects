@@ -54,22 +54,21 @@ public class Custom_Adapter extends BaseAdapter {
         tvID.setText(mUserInfoObjArr.get(position).id);
 
         final TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
-        tvID.setText(mUserInfoObjArr.get(position).name);
+        tvName.setText(mUserInfoObjArr.get(position).name);
 
         final TextView tvPhone = (TextView) convertView.findViewById(R.id.tv_phone);
-        tvID.setText(mUserInfoObjArr.get(position).phone);
+        tvPhone.setText(mUserInfoObjArr.get(position).phone);
 
         final TextView tvGrade = (TextView) convertView.findViewById(R.id.tv_grade);
-        tvID.setText(mUserInfoObjArr.get(position).grade);
+        tvGrade.setText(mUserInfoObjArr.get(position).grade);
 
         final TextView tvWriteTime = (TextView) convertView.findViewById(R.id.tv_write_time);
-        tvID.setText(mUserInfoObjArr.get(position).writeTime);
+        tvWriteTime.setText(mUserInfoObjArr.get(position).writeTime);
 
-        Button updateButton = (Button) convertView.findViewById(R.id.btnUpdate);
+         Button updateButton = (Button) convertView.findViewById(R.id.btnUpdate);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
             }
         });
@@ -90,7 +89,7 @@ public class Custom_Adapter extends BaseAdapter {
                 });
             }
         });
-        return null;
+        return convertView;
     }
 
 }
