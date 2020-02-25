@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".MainActivity">
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="키 : " />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_span="2" />
+
+        <TextView android:text="(cm)" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="체중 : " />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_span="2" />
+
+        <TextView android:text="(kg)" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="성별 : " />
+
+        <RadioGroup
+            android:id="@+id/rdoGroup1"
+            android:layout_span="3"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdoBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여자" />
+
+            <RadioButton
+                android:id="@+id/rdoBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남자" />
+        </RadioGroup>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="혈액형 : " />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_span="3"></Spinner>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="습관 : " />
+
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:text="음주" />
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox2"
+            android:text="흡연" />
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox3"
+            android:text="운동" />
+        >
+
+
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_span="4"
+            android:text="몸 상태 측정" />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_weight="1"
+            android:text="1.?형 ??입니다!"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_weight="1"
+            android:text="2.신체질량지수는 ???입니다!"/>
+    </TableRow>
+
+    <TableRow>
+
+        <Gallery
+            android:id="@+id/gallery1"
+            android:layout_span="4"></Gallery>
+    </TableRow>
+</TableLayout>
