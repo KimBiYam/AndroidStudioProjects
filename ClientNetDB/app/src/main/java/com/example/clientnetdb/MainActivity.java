@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                                 String grade = ((EditText) view.findViewById(R.id.edtGrade)).getText().toString();
 
                                 new NetworkInsert(adapter).execute(id, name, phone, grade);
+                                new NetworkGet((Custom_Adapter) listView.getAdapter()).execute("");
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

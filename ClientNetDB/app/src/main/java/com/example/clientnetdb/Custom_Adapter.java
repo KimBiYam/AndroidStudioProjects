@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -85,8 +86,17 @@ public class Custom_Adapter extends BaseAdapter {
                 dlg.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        new NetworkDelete(Custom_Adapter.this).execute(tvID.getText().toString());
+                        new NetworkGet(Custom_Adapter.this).execute("");
                     }
                 });
+                dlg.setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(mAct, "취소하였습니다", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dlg.show();
             }
         });
         return convertView;
