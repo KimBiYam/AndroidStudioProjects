@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class NetworkInsert extends AsyncTask<String, Void, String> {
     private URL Url;
-    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB_insert.jsp";
+    private String URL_Adress = "http://112.162.119.82:8080/testDB/testDB_insert.jsp";
     private Custom_Adapter adapter;
 
     public NetworkInsert(Custom_Adapter adapter) {
@@ -85,9 +85,7 @@ public class NetworkInsert extends AsyncTask<String, Void, String> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if(res!=0){
             new NetworkGet(adapter).execute("");
-        }
 
     }
 }

@@ -66,7 +66,7 @@ public class Custom_Adapter extends BaseAdapter {
         final TextView tvWriteTime = (TextView) convertView.findViewById(R.id.tv_write_time);
         tvWriteTime.setText(mUserInfoObjArr.get(position).writeTime);
 
-         Button updateButton = (Button) convertView.findViewById(R.id.btnUpdate);
+        Button updateButton = (Button) convertView.findViewById(R.id.btnUpdate);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

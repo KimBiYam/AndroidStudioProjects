@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class NetworkGet extends AsyncTask<String, Void, String> {
     private URL Url;
-    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB.jsp";
+    private String URL_Adress = "http://112.162.119.82:8080/testDB/testDB.jsp";
     private Custom_Adapter adapter;
 
     public NetworkGet(Custom_Adapter adapter) {
@@ -83,11 +83,8 @@ public class NetworkGet extends AsyncTask<String, Void, String> {
         }catch (JSONException e){
             e.printStackTrace();
         }
-        if(count != 0){
             adapter.setDatas(userList);
             adapter.notifyDataSetInvalidated();
-        }
-
     }
 }
 
