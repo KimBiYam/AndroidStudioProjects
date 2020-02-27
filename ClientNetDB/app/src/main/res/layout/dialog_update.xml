@@ -11,6 +11,20 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="57dp"
+            android:layout_height="match_parent"
+            android:gravity="right|center_vertical"
+            android:text="ID :" />
+
+        <EditText
+            android:id="@+id/edtID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:hint="ID"
+            android:paddingLeft="5dp" />
+
     </LinearLayout>
 
     <LinearLayout

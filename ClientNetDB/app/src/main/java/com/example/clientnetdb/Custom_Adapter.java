@@ -75,13 +75,17 @@ public class Custom_Adapter extends BaseAdapter {
 
                 final View view = mAct.getLayoutInflater().inflate(R.layout.dialog_update,null);
 
+                EditText edtId = (EditText)  view.findViewById(R.id.edtID);
                 EditText edtName = (EditText) view.findViewById(R.id.edtName);
                 EditText edtPhone = (EditText) view.findViewById(R.id.edtPhone);
                 EditText edtgrade = (EditText) view.findViewById(R.id.edtGrade);
+
+                edtId.setText(tvID.getText().toString());
                 edtName.setText(tvName.getText().toString());
                 edtPhone.setText(tvPhone.getText().toString());
                 edtgrade.setText(tvGrade.getText().toString());
 
+                edtId.setEnabled(false);
 
                 new AlertDialog.Builder(mAct)
                         .setTitle("멤버 수정")
