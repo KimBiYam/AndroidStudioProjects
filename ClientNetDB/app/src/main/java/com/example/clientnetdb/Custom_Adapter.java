@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,6 +71,40 @@ public class Custom_Adapter extends BaseAdapter {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                final View view = mAct.getLayoutInflater().inflate(R.layout.dialog_update,null);
+
+                EditText edtName = (EditText) view.findViewById(R.id.edtName);
+                EditText edtPhone = (EditText) view.findViewById(R.id.edtPhone);
+                EditText edtgrade = (EditText) view.findViewById(R.id.edtGrade);
+                edtName.setText(tvName.getText().toString());
+                edtPhone.setText(tvPhone.getText().toString());
+                edtgrade.setText(tvGrade.getText().toString());
+
+
+                new AlertDialog.Builder(mAct)
+                        .setTitle("멤버 수정")
+                        .setView(view)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String id = tvID.getText().toString();
+                                String name = ((EditText) view.findViewById(R.id.edtName)).getText().toString();
+                                String phone = ((EditText) view.findViewById(R.id.edtPhone)).getText().toString();
+                                String grade = ((EditText) view.findViewById(R.id.edtGrade)).getText().toString();
+
+                                new NetworkUpdate(Custom_Adapter.this).execute(id, name, phone, grade);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .setCancelable(false)
+                        .show();
 
             }
         });

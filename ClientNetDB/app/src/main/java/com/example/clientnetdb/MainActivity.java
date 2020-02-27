@@ -3,12 +3,14 @@ package com.example.clientnetdb;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -50,9 +52,12 @@ public class MainActivity extends AppCompatActivity {
                                 String name = ((EditText) view.findViewById(R.id.edtName)).getText().toString();
                                 String phone = ((EditText) view.findViewById(R.id.edtPhone)).getText().toString();
                                 String grade = ((EditText) view.findViewById(R.id.edtGrade)).getText().toString();
-
-                                new NetworkInsert(adapter).execute(id, name, phone, grade);
-                                new NetworkGet((Custom_Adapter) listView.getAdapter()).execute("");
+                                if (id.equals("")) {
+                                    Toast.makeText(MainActivity.this, "id를 입력하세요", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    new NetworkInsert(adapter).execute(id, name, phone, grade);
+                                    new NetworkGet((Custom_Adapter) listView.getAdapter()).execute("");
+                                }
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

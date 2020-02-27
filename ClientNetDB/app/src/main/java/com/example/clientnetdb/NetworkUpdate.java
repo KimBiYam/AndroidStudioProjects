@@ -14,14 +14,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.ArrayList;
 
-public class NetworkGet extends AsyncTask<String, Void, String> {
+public class NetworkUpdate extends AsyncTask<String, Void, String> {
+
     private URL Url;
-    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB.jsp";
+    private String URL_Adress = "http://192.168.0.73:8080/testDB/testDB_update.jsp";
     private Custom_Adapter adapter;
 
-    public NetworkGet(Custom_Adapter adapter) {
+    public NetworkUpdate(Custom_Adapter adapter) {
         this.adapter = adapter;
     }
 
@@ -42,6 +42,9 @@ public class NetworkGet extends AsyncTask<String, Void, String> {
             // 전송값 설정
             StringBuffer buffer = new StringBuffer();
             buffer.append("id").append("=").append(strings[0]);
+            buffer.append("&name").append("=").append(strings[1]);
+            buffer.append("&phone").append("=").append(strings[2]);
+            buffer.append("&grade").append("=").append(strings[3]);
 
             // 서버로 전송
             OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "utf-8");
@@ -75,16 +78,14 @@ public class NetworkGet extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        int res = 0;
 
-        ArrayList<UserInfo> userList = new ArrayList<>();
-        int count = 0;
-        try{
-            count = JsonParser.getUserInfoJson(s, userList);
-        }catch (JSONException e){
+        try {
+            res = JsonParser.getResultJson(s);
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-            adapter.setDatas(userList);
-            adapter.notifyDataSetInvalidated();
+            new NetworkGet(adapter).execute("");
+
     }
 }
-
